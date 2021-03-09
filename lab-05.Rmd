@@ -117,7 +117,8 @@ nobel_living_science %>%
 
 
 ```{r}
-
+nobel_living_science<-nobel_living_science%>%mutate(born_country_us=if_else(born_count=="USA","USA","other"))
+nobel_living_science %>% filter(born_country_us == "USA") %>% count(born_country_us) 
 ```
 
 Knit, *commit, and push your changes to GitHub with an appropriate commit message. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.d*
