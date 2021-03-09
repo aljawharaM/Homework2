@@ -102,7 +102,7 @@ nobel_living_science %>%
 
 4.  Create a new variable called `born_country_us` that has the value
     `"USA"` if the laureate is born in the US, and `"Other"` otherwise.
-    How many of the winners are born in the US?
+    How many of the winners are born in the US? 243
 
 Knit, *commit, and push your changes to GitHub with an appropriate
 commit message. Make sure to commit and push all changed files so that
@@ -119,6 +119,17 @@ your Git pane is cleared up afterwards.d*
         laureate won the award in the US or not.
     -   Each bar should have segments for whether the laureate was born
         in the US or not.
+
+Yes, because at buzzfeed we analyze the data to look for more data and
+get information from that, so we go deeper into it and do a lot of
+exercises to understand the data.
+
+``` r
+nobel_living_science <- nobel_living_science %>% mutate( born_country_us = if_else(born_country == "USA", "USA", "Other"))
+ nobel_living_science %>%ggplot(aes(x = country_us,y=born_country_us, fill = category)) + geom_bar(stat = "identity", position = "dodge", orientation="horizontal")
+```
+
+![](lab-05_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
 
 Knit, *commit, and push your changes to GitHub with an appropriate
 commit message. Make sure to commit and push all changed files so that
